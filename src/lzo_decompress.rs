@@ -311,8 +311,7 @@ pub unsafe extern "C" fn lzo1x_decompress_safe(
                                 }
                             }
                             m_pos = op.offset(-1isize) as *const u8;
-                            next =
-                                get_unaligned_le16(ip as *const ::std::os::raw::c_void) as usize;
+                            next = get_unaligned_le16(ip as *const ::std::os::raw::c_void) as usize;
                             ip = ip.offset(2isize);
                             m_pos = m_pos.offset(-((next >> 2i32) as isize));
                             next &= 3usize;
@@ -362,8 +361,7 @@ pub unsafe extern "C" fn lzo1x_decompress_safe(
                                     break;
                                 }
                             }
-                            next =
-                                get_unaligned_le16(ip as *const ::std::os::raw::c_void) as usize;
+                            next = get_unaligned_le16(ip as *const ::std::os::raw::c_void) as usize;
                             ip = ip.offset(2isize);
                             m_pos = m_pos.offset(-((next >> 2i32) as isize));
                             next &= 3usize;
