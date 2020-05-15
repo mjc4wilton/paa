@@ -38,12 +38,10 @@ impl MipMap {
             false
         };
         let mut img_size: u32 = (width_2 as u32) * (self.height as u32);
-        // DXT1 only
         if self.format == image::dxt::DXTVariant::DXT1 {
             img_size /= 2;
         }
         let mut buffer: Box<[u8]> = vec![0; img_size as usize].into_boxed_slice();
-        //rust_lzo::LZOContext::decompress_to_slice(data, &mut buffer);
         let decoder = if compress {
             crate::lzo_decompress::decompress_to_slice(data, &mut buffer);
             image::dxt::DxtDecoder::new(&*buffer, width_2 as u32, self.height as u32, self.format)
@@ -54,6 +52,4 @@ impl MipMap {
         };
         image::DynamicImage::from_decoder(decoder).unwrap()
     }
-
-    // pub fn from_bytes(bytes: [u8; 2]) -> Option<Self> {}
 }
