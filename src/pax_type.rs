@@ -14,16 +14,16 @@ pub enum PaXType {
 }
 
 impl PaXType {
-    pub fn from_stream<I: Read>(stream: &mut I) -> Option<PaXType> {
+    pub fn from_stream<I: Read>(stream: &mut I) -> Option<Self> {
         let mut bytes = [0; 2];
         if stream.read_exact(&mut bytes).is_ok() {
-            PaXType::from_bytes(bytes)
+            Self::from_bytes(bytes)
         } else {
             None
         }
     }
 
-    pub fn from_bytes(bytes: [u8; 2]) -> Option<PaXType> {
+    pub fn from_bytes(bytes: [u8; 2]) -> Option<Self> {
         match bytes {
             [1, 255] => Some(Self::DXT1),    // 0x01FF
             [2, 255] => Some(Self::DXT2),    // 0x02FF

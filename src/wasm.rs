@@ -37,7 +37,7 @@ impl ImageResult {
             .write_to(&mut buffer, image::ImageFormat::Png)
             .unwrap();
 
-        ImageResult {
+        Self {
             data: std::rc::Rc::new(std::cell::RefCell::from(buffer)),
         }
     }

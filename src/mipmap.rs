@@ -31,11 +31,11 @@ impl MipMap {
     pub fn get_image(&self) -> image::DynamicImage {
         let data = &*self.data;
         let mut width_2 = self.width;
-        let compress = if width_2 % 32768 != width_2 {
+        let compress = if width_2 % 32768 == width_2 {
+            false
+        } else {
             width_2 -= 32768;
             true
-        } else {
-            false
         };
         let mut img_size: u32 = (width_2 as u32) * (self.height as u32);
         if self.format == image::dxt::DXTVariant::DXT1 {

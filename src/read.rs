@@ -7,7 +7,7 @@ use crate::{MipMap, PaXType, PAA};
 impl PAA {
     pub fn read<I: Seek + Read>(mut input: I) -> Result<Self, Error> {
         if let Some(pax) = PaXType::from_stream(&mut input) {
-            let mut paa = PAA::new(pax);
+            let mut paa = Self::new(pax);
             // Read Taggs
             while {
                 let mut tagg_sig = [0; 4];

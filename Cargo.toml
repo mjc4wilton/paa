@@ -8,7 +8,7 @@ edition = "2018"
 crate-type = ["cdylib", "rlib"]
 
 [[bench]]
-name = "to_png"
+name = "benchmarks"
 harness = false
 
 [dependencies]
@@ -22,4 +22,4 @@ default = ["wasm"]
 wasm = ["wasm-bindgen"]
 
 [dev-dependencies]
-criterion = "0.3"
+criterion = "*"
