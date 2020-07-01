@@ -1,5 +1,5 @@
-use std::io::Cursor;
 use std::io::prelude::Read;
+use std::io::Cursor;
 
 use criterion::{criterion_group, criterion_main, Criterion};
 

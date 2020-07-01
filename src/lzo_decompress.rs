@@ -156,7 +156,9 @@ pub unsafe extern "C" fn lzo1x_decompress_safe(
                                     / ::std::mem::size_of::<u8>() as isize)
                                     as usize;
                                 if offset
-                                    > (!0_i32 as usize).wrapping_div(255_usize).wrapping_sub(2_usize)
+                                    > (!0_i32 as usize)
+                                        .wrapping_div(255_usize)
+                                        .wrapping_sub(2_usize)
                                 {
                                     current_block = 60;
                                     break;
@@ -289,7 +291,9 @@ pub unsafe extern "C" fn lzo1x_decompress_safe(
                                     / ::std::mem::size_of::<u8>() as isize)
                                     as usize;
                                 if offset
-                                    > (!0_i32 as usize).wrapping_div(255_usize).wrapping_sub(2_usize)
+                                    > (!0_i32 as usize)
+                                        .wrapping_div(255_usize)
+                                        .wrapping_sub(2_usize)
                                 {
                                     current_block = 30;
                                     break;
@@ -340,7 +344,9 @@ pub unsafe extern "C" fn lzo1x_decompress_safe(
                                     / ::std::mem::size_of::<u8>() as isize)
                                     as usize;
                                 if offset
-                                    > (!0_i32 as usize).wrapping_div(255_usize).wrapping_sub(2_usize)
+                                    > (!0_i32 as usize)
+                                        .wrapping_div(255_usize)
+                                        .wrapping_sub(2_usize)
                                 {
                                     current_block = 22;
                                     break;
